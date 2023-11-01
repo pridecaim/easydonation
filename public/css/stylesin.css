@@ -1,0 +1,374 @@
+/*Style do index, perfil, sobre nós e ongs*/
+
+.bg-custom {
+    background-color: #FFF7ED;
+    /* Define a cor de fundo personalizada */
+}
+
+/* Rectangle 39 */
+.container-atualizar input {
+    background-color: #d9d9d9c7;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 20px;
+    margin-left: -15px;
+    margin-bottom: 25px;
+    outline: none;
+}
+
+
+.container-atualizar input:focus{
+    transform: scale(1.05);
+    color: rgba(85, 85, 85, 0.8);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para o fundo quadrado à esquerda */
+.background-square-gradient-left {
+    position: absolute;
+    height: 500px;
+    left: 10px;
+    top: 12px;
+    border-radius: 20px;
+}
+
+/* Estilo para o fundo quadrado à direita */
+.background-square-gradient-right-tall {
+    background: linear-gradient(333.98deg, #FF774B -2.35%, #EC5571 43.77%, #D83396 75.18%, #8918BE 94.95%);
+    /* Gradiente de cores de cima para baixo */
+    border-radius: 20px;
+    /* Arredondamento das bordas */
+    padding: 40px;
+    /* Espaçamento interno */
+    margin: 190px;
+    /* Margem externa para centralizar verticalmente e alinhar à direita */
+    max-width: 290px;
+    /* Largura máxima do quadrado */
+
+    float: right;
+    /* Alinha à direita */
+    height: 500px;
+    margin-top: 12px;
+    color: #fff;
+}
+
+
+/* Estilo para o fundo quadrado com gradiente de cores */
+.background-square-gradient {
+    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
+    /* Gradiente de cores */
+    border-radius: 20px;
+    /* Arredondamento das bordas */
+    padding: 40px;
+    /* Espaçamento interno */
+    margin: 40px auto;
+    /* Margem externa para centralizar */
+    max-width: 580px;
+    /* Largura máxima do quadrado */
+    float: left;
+    /* Alinha à esquerda */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para o segundo fundo quadrado à direita */
+.background-square-gradient-right {
+    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
+    /* Gradiente de cores de cima para baixo */
+    border-radius: 20px;
+    /* Arredondamento das bordas */
+    padding: 40px;
+    /* Espaçamento interno */
+    margin: 40px 0 40px 20px;
+    /* Margem externa para centralizar verticalmente e alinhar à direita */
+    max-width: 600px;
+    /* Largura máxima do quadrado */
+    float: right;
+    /* Alinha à direita */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.navbar-brand img {
+    width: 50px;
+    /* Defina o tamanho desejado */
+    height: auto;
+    /* Mantém a proporção original */
+    margin-right: 10px;
+    /* Espaço à direita do logotipo, se necessário */
+}
+
+.navbar {
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav .nav-link {
+    text-shadow: 2px 2px 5px rgba(77, 76, 76, 0.3);
+}
+
+/* Estilizando o fundo gradiente da navbar */
+.navbar {
+    background: linear-gradient(90deg, #8918BE, #D83396, #EB5571, #FF774B);
+    /* Adicione outros estilos de sua escolha, como cor de texto e margens */
+}
+
+/* Estilizando o texto na navbar para branco */
+.navbar-nav .nav-link {
+    color: #fff;
+    /* Define a cor do texto para branco */
+}
+
+/* Estilizando o link ativo */
+.navbar-nav .nav-link {
+    color: #fff;
+    /* Mantendo a cor do texto para o link ativo como branco */
+}
+
+.navbar-toggler-icon {
+    background-color: transparent;
+    border: none;
+    display: block;
+    /* Certifique-se de que o ícone seja exibido como bloco em todas as resoluções */
+}
+
+.menu {
+    --s: 30px;
+    /* control the size */
+    --c: #fff;
+    /* the color */
+
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s)/2) solid #0000;
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%, #0000 0 80%, var(--c) 0) no-repeat content-box border-box;
+    --_g2: radial-gradient(circle closest-side at 50% 12.5%, var(--c) 95%, #0000) repeat-y content-box border-box;
+    background:
+        var(--_g2) left var(--_p, 0px) top,
+        var(--_g1) left calc(var(--s)/10 + var(--_p, 0px)) top,
+        var(--_g2) right var(--_p, 0px) top,
+        var(--_g1) right calc(var(--s)/10 + var(--_p, 0px)) top;
+    background-size:
+        20% 80%,
+        40% 100%;
+    position: relative;
+    clip-path: inset(0 25%);
+    -webkit-mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
+    cursor: pointer;
+    transition:
+        background-position .3s var(--_s, .3s),
+        clip-path 0s var(--_s, .6s);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.menu:before,
+.menu:after {
+    content: "";
+    position: absolute;
+    border-radius: var(--s);
+    inset: 40% 0;
+    background: var(--c);
+    transition: transform .3s calc(.3s - var(--_s, .3s));
+}
+
+.menu:checked {
+    clip-path: inset(0);
+    --_p: calc(-1*var(--s));
+    --_s: 0s;
+}
+
+.menu:checked:before {
+    transform: rotate(45deg);
+}
+
+.menu:checked:after {
+    transform: rotate(-45deg);
+}
+
+.menu:focus-visible {
+    clip-path: none;
+    -webkit-mask: none;
+    border: none;
+    outline: 2px solid var(--c);
+    outline-offset: 5px;
+}
+
+#menuToggle {
+    position: absolute;
+    top: 20px;
+    /* Distância do topo da tela */
+    right: 45px;
+    /* Distância da direita da tela */
+}
+
+.opcs {
+    position: absolute;
+    display: none;
+    background-color: white;
+    /* Fundo branco */
+    border: 1px solid #ccc;
+    /* Borda fina de 1px cinza */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra ao redor */
+    padding: 25px 15px;
+    /* Espaçamento interno para as opções */
+    border-radius: 5px;
+    /* Cantos arredondados */
+}
+
+.opc {
+    color: #5f5f5f;
+    border: none;
+    background-color: transparent;
+}
+
+.opcs button:hover {
+    transform: scale(1.05);
+    color: rgba(85, 85, 85, 0.8);
+}
+
+/* Mostra as opções quando o checkbox estiver marcado */
+#menuToggle:checked+.opcs {
+    display: block;
+    position: fixed;
+    top: 90px;
+    /* Distância do topo da tela */
+    right: 10px;
+    /* Distância da direita da tela */
+}
+
+.opcs button {
+    display: block;
+    margin-bottom: 10px;
+    /* Ajuste conforme necessário */
+}
+
+/* Estilize a imagem para torná-la menor */
+.ong-entry img {
+    background-color: #fff;
+    max-width: 140px;
+    /* Defina a largura máxima desejada */
+    max-height: 140px;
+    /* Defina a altura máxima desejada */
+    width: auto;
+    /* Ajusta a largura automaticamente para a altura especificada */
+    height: auto;
+    /* Ajusta a altura automaticamente para a largura especificada */
+}
+
+.ong-catalog {
+    display: flex;
+    /* Tornar os elementos filhos flexíveis */
+    flex-wrap: wrap;
+    /* Quebrar para a próxima linha quando não houver espaço suficiente */
+    gap: 90px;
+    /* Espaço entre as ONGs */
+}
+
+.ong-entry {
+    flex: 1;
+    /* Distribuir igualmente o espaço disponível entre as ONGs */
+    max-width: calc(33.33% - 20px);
+    /* Largura máxima de cada ONG com margem entre elas */
+}
+
+.ong-rectangle {
+    position: relative;
+    width: 170px;
+    height: 240px;
+    margin: 30px ;
+    /* Espaço entre as ONGs - você pode ajustar este valor */
+    background: linear-gradient(360deg, #D83396 5.3%, #FF774B 104.02%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.ong-rectangle img {
+    max-width: 100%;
+    /* Garantir que a imagem não exceda a largura do retângulo */
+}
+
+/* Estilos para o texto (nome da ONG) */
+.ong-rectangle p {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    /* Espaço entre a imagem e o texto */
+}
+
+.ong-entry {
+    flex: 1;
+    max-width: calc(33.33% - 300px);
+    /* Largura máxima de cada ONG com margem entre elas */
+    margin-right: 10px;
+    /* Espaço entre as ONGs na direção horizontal */
+}
+
+button {
+    border-radius: 9px;
+    border: none;
+    background-color:#d833968a;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 18px 55px;
+    letter-spacing: 1px;
+    margin: 50px;
+    margin-top: 20px;
+
+}
+
+button:hover {
+    outline: none;
+    transform: scale(1.05);
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+}
+
+#userImage {
+    width: 60%;
+    height: 80%;
+    margin: 25px;
+    margin-top: -30px;
+    object-fit: cover;
+    display: block;
+    /* Altere para 'block' para garantir que a imagem seja exibida */
+    background-color: transparent;
+    margin-left: 55px;
+
+}
+.ong-catalog a {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center; /* Adicionado para centralizar o texto */
+    align-items: center; /* Adicionado para alinhar verticalmente o texto */
+    color: #fff;
+    background-color:#FF774B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: -15px; /* Adicionado para mover o botão para cima */
+}
+
+.ong-catalog a:hover {
+    transform: scale(1.08);
+    color: rgba(245, 245, 245, 0.8);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
