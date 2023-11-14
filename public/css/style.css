@@ -8,6 +8,7 @@
 
 body {
   background-color: #fcfcfc;
+  overflow-y: scroll;
   /* Define a cor de fundo personalizada */
 }
 
@@ -58,6 +59,7 @@ input[type="checkbox"]:checked {
   background: #F5F5F5;
   border: 1px solid #000000;
   top: 350px;
+  margin-top: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
     0 10px 10px rgba(0, 0, 0, 0.1);
 }
@@ -71,6 +73,7 @@ input[type="checkbox"]:checked {
   background: #F5F5F5;
   border: 1px solid #000000;
   top: 470px;
+  margin-top: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
     0 10px 10px rgba(0, 0, 0, 0.1);
 }
@@ -80,9 +83,9 @@ input[type="checkbox"]:checked {
   color: #F5F5F5;
   text-align: center;
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   width: 490px;
-  height: 620px;
+  height: 700px;
   left: 750px;
   top: 19px;
   background: linear-gradient(180deg, rgba(100, 75, 255, 0.89) 0%, rgba(236, 85, 113, 0.92) 100%);
@@ -90,8 +93,9 @@ input[type="checkbox"]:checked {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
     0 10px 10px rgba(0, 0, 0, 0.22);
-  
 }
+
+
 
 .background-square-right img {
   border-radius: 15px;
@@ -103,7 +107,6 @@ input[type="checkbox"]:checked {
 .listra {
   /* Rectangle 36 */
   border-radius: 10px;
-  position: fixed;
   width: 245px;
   height: 4px;
   left: 55px;
@@ -115,29 +118,144 @@ input[type="checkbox"]:checked {
 
 .listra1 {
   /* Rectangle 36 */
-
-  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 490px;
   height: 6px;
-  left: 750px;
-  top: 245px;
   background: linear-gradient(90deg, #FF774B 10.52%, #D83396 77.99%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ /* Ajuste este valor para mover os elementos para baixo */
+}
 
+input[type="radio"] {
+  margin-top: 20px;
+  appearance: none;
+  width: 0;
+  height: 0;
+}
+
+.listra1 label {
+  display: inline-block;
+  padding: 15px;
+  background-color: #f5f5f5;
+  color: #555;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-right: 10px;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+ /* Ajuste este valor para aumentar o espaçamento entre os elementos */
+}
+
+.listra1 input[type="radio"]:checked + label {
+  background-color: #555;
+  color: #fff;
+}
+
+.listra1 input[type="radio"]:hover + label {
+  transform: scale(1.09);
 }
 
 .listra2 {
-    /* Rectangle 36 */
-    
-    position: fixed;
-    width: 490px;
-    height: 6px;
-    left: 750px;
-    top: 500px;
-    background: linear-gradient(90deg, #D83396 10.52%, #FF774B 77.99%);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  
-  }
+  /* Rectangle 36 */
+  width: 490px;
+  height: 6px;
+  background: linear-gradient(90deg, #D83396 10.52%, #FF774B 77.99%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 280px; /* Ajuste este valor para mover os elementos para baixo */
+}
 
 
+
+button {
+  padding: 10px 20px;
+  background-color: #d83396;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: -190px;
+}
+
+/* Estilos do rodapé */
+.footer {
+  margin-top: 570px;
+  background-color: #333; /* Cor de fundo do rodapé */
+  color: #fff; /* Cor do texto no rodapé */
+  padding: 40px 0; /* Espaçamento interno do rodapé */
+}
+
+.container {
+  max-width: 1200px; /* Largura máxima do conteúdo do rodapé */
+  margin: 0 auto; /* Centralizar o conteúdo horizontalmente */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-logo {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+.footer-info, .footer-social {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-info h2, .footer-social h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-info p {
+  margin: 5px 0;
+}
+
+.footer-social a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  margin: 5px 0;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #ff6600; /* Cor destacada ao passar o mouse */
+}
+
+
+.bodypix{
+  overflow-x: hidden;
+}
+
+
+.listrapix{
+box-sizing: border-box;
+
+position: absolute;
+width: 1450px;
+height: 70px;
+left: -5px;
+top: 70px;
+background: #E8E8E8;
+border: 1px solid #979797;
+
+}
+
+/* Rectangle 53 */
 

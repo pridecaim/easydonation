@@ -12,6 +12,13 @@ $site = $_GET['site'];
 $descricao = $_GET['descricao'];
 $missao = $_GET['missao'];
 $area = $_GET['area'];
+$caminhos_galeria = array(); // Inicialize a variável para a galeria de imagens
+
+if (isset($_GET['galeria'])) {
+    $galeria_decodificada = urldecode($_GET['galeria']);
+    $caminhos_galeria = explode(';', $galeria_decodificada);
+}
+
 
 
 $db = new Conexao();
@@ -19,6 +26,7 @@ $conn = $db->getConnection();
 $ong = new Ong($conn);
 
 $ongs = $ong->buscarTodasOngs();
+
 if (isset($_POST['doar'])) {
     // Armazene os dados da ONG na sessão
     $_SESSION['ong_nome'] = $nome;
@@ -37,7 +45,7 @@ if (isset($_POST['doar'])) {
         <?php echo ($nome) ?>
     </title>
     <link rel="stylesheet" href="../public/css/stylesin.css">
-    <link rel="stylesheet" href="../public/scss/pictures.scss">
+    <link rel="stylesheet" href="../public/scss/pictures.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -47,76 +55,32 @@ if (isset($_POST['doar'])) {
 
 <body class="bg-custom">
 
-    <div class="options">
-        <div class="option active"
-            style="--optionBackground:url(https://66.media.tumblr.com/6fb397d822f4f9f4596dff2085b18f2e/tumblr_nzsvb4p6xS1qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
-            <div class="label">
-                <div class="icon">
-                    <i class="fas fa-walking"></i>
-                </div>
-                <div class="info">
-                    <div class="main">Blonkisoaz</div>
-                    <div class="sub">Omuke trughte a otufta</div>
-                </div>
+    <div class="image-gallery">
+        <h3>Galeria de Imagens</h3>
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <?php
+                if (isset($caminhos_galeria) && !empty($caminhos_galeria)) {
+                    foreach ($caminhos_galeria as $index => $imagem) {
+                        $activeClass = ($index === 0) ? 'active' : '';
+                        echo '<div class="carousel-item ' . $activeClass . '">';
+                        echo '<img src="' . $imagem . '" class="d-block w-100" alt="Imagem da galeria ' . ($index + 1) . '">';
+                        echo '</div>';
+                    }
+                }
+                ?>
             </div>
-        </div>
-        <div class="option"
-            style="--optionBackground:url(https://66.media.tumblr.com/8b69cdde47aa952e4176b4200052abf4/tumblr_o51p7mFFF21qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
-            <div class="label">
-                <div class="icon">
-                    <i class="fas fa-snowflake"></i>
-                </div>
-                <div class="info">
-                    <div class="main">Oretemauw</div>
-                    <div class="sub">Omuke trughte a otufta</div>
-                </div>
-            </div>
-        </div>
-        <div class="option"
-            style="--optionBackground:url(https://66.media.tumblr.com/5af3f8303456e376ceda1517553ba786/tumblr_o4986gakjh1qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
-            <div class="label">
-                <div class="icon">
-                    <i class="fas fa-tree"></i>
-                </div>
-                <div class="info">
-                    <div class="main">Iteresuselle</div>
-                    <div class="sub">Omuke trughte a otufta</div>
-                </div>
-            </div>
-        </div>
-        <div class="option"
-            style="--optionBackground:url(https://66.media.tumblr.com/5516a22e0cdacaa85311ec3f8fd1e9ef/tumblr_o45jwvdsL11qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
-            <div class="label">
-                <div class="icon">
-                    <i class="fas fa-tint"></i>
-                </div>
-                <div class="info">
-                    <div class="main">Idiefe</div>
-                    <div class="sub">Omuke trughte a otufta</div>
-                </div>
-            </div>
-        </div>
-        <div class="option"
-            style="--optionBackground:url(https://66.media.tumblr.com/f19901f50b79604839ca761cd6d74748/tumblr_o65rohhkQL1qho82wo1_1280.jpg);">
-            <div class="shadow"></div>
-            <div class="label">
-                <div class="icon">
-                    <i class="fas fa-sun"></i>
-                </div>
-                <div class="info">
-                    <div class="main">Inatethi</div>
-                    <div class="sub">Omuke trughte a otufta</div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próxima</span>
+            </button>
         </div>
     </div>
-
     <div class="background-square-gradient">
-    
         <h3>
             <?php echo ($nome); ?>
         </h3>
@@ -128,18 +92,15 @@ if (isset($_POST['doar'])) {
         </p>
         <p>Site: <a href="<?php echo $site; ?>" target="_blank">
                 <?php echo $site; ?>
-            </a>
-        </p>
-
+            </a></p>
         <p>Endereço:
             <?php echo ($endereco); ?>
         </p>
     </div>
+
     <form method="POST">
         <div class="background-square-gradient-right">
-            <h3>
-                Você pode fazer a diferença!
-            </h3>
+            <h3>Você pode fazer a diferença!</h3>
             <p>
                 <?php echo ($missao); ?>
             </p>
@@ -149,13 +110,6 @@ if (isset($_POST['doar'])) {
             <button name="doar">Doar</button>
         </div>
     </form>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(".option").click(function () {
-            $(".option").removeClass("active");
-            $(this).addClass("active");
-        });
-    </script>
 </body>
 
 </html>

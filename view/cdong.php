@@ -9,29 +9,25 @@ $db = $database->getConnection();
 
 // Crie uma instância da classe Ong passando a conexão como argumento
 $ong = new Ong($db);
-// Verifique se o formulário de cadastro foi enviado (cadastrar)
-if (isset($_POST['cadastrar'])) {
-    // Obtenha os valores do formulário
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
-    $endereco = $_POST['endereco'];
-    $site = $_POST['site'];
-    $descricao = $_POST['descricao'];
-    $missao = $_POST['missao'];
-    $area = $_POST['area'];
 
-    // Chame a função cadastrarong() da classe Ong com os dados do formulário e a imagem
-    if ($ong->cadastrarong($_POST, $_FILES)) {
-        echo "<script>alert('Ong cadastrada com sucesso!');</script>";
+if (isset($_POST['cadastrar'])) {
+    $caminhos_imagens = $ong->cadastrarong($_POST, $_FILES);
+
+    if ($caminhos_imagens['result'] !== false) {
     }
 }
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Ong</title>
+    <link rel="stylesheet" href="../public/css/stylecd.css">
+    <link rel="icon" href="../public/img/logonobg.png" type="image/x-icon">
+</head>
 
 <head>
     <meta charset="UTF-8">
@@ -71,8 +67,12 @@ if (isset($_POST['cadastrar'])) {
                 <option value="Acesso a água potável e saneamento">Acesso à Água potável e Saneamento</option>
             </select>
 
-            <button name="cadastrar" id="cadastrar" href="cduser.php">Cadastrar</button>
+            <input type="file" name="galeria[]" id="galeriaInput" style="display: none; color: blue;" required multiple>
+            <label id="galeriaLabel" for="galeriaInput">Enviar Galeria de Imagens</label><br>
+
+            <button name="cadastrar" id="cadastrar">Cadastrar</button>
             <a href="cduser.php">Voltar a tela de login</a>
+
         </form>
     </div>
     </div>
@@ -85,7 +85,24 @@ if (isset($_POST['cadastrar'])) {
             };
             reader.readAsDataURL(e.target.files[0]);
         };
+
+        document.getElementById('galeriaInput').onchange = function (e) {
+            var input = e.target;
+            var label = document.getElementById('galeriaLabel');
+
+            if (input.files && input.files.length > 0) {
+                label.innerHTML = "Imagens enviadas";
+            }
+        };
+
+        <?php
+        if (isset($caminhos_imagens) && $caminhos_imagens['result']) {
+            echo "alert('Ong cadastrada com sucesso!');";
+            echo "window.location.href = 'cduser.php';"; // Redirecionar após o cadastro bem-sucedido
+        }
+        ?>
     </script>
+
 </body>
 
 </html>

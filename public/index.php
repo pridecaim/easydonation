@@ -35,7 +35,9 @@ $ongs = $ong->buscarTodasOngs();
           <p>
             <?php echo $ong['nome']; ?>
           </p>
-          <a href="../view/ongs.php?id=<?php echo $ong['id']; ?>&nome=<?php echo urlencode($ong['nome']); ?>&img=<?php echo urlencode($ong['img']); ?>&email=<?php echo urlencode($ong['email']); ?>&telefone=<?php echo urlencode($ong['telefone']); ?>&endereco=<?php echo urlencode($ong['endereco']); ?>&site=<?php echo urlencode($ong['site']); ?>&descricao=<?php echo urlencode($ong['descricao']); ?>&missao=<?php echo urlencode($ong['missao']); ?>&area=<?php echo urlencode($ong['area']); ?>">Saiba Mais</a>
+          <a
+            href="../view/ongs.php?id=<?php echo $ong['id']; ?>&nome=<?php echo urlencode($ong['nome']); ?>&img=<?php echo urlencode($ong['img']); ?>&email=<?php echo urlencode($ong['email']); ?>&telefone=<?php echo urlencode($ong['telefone']); ?>&endereco=<?php echo urlencode($ong['endereco']); ?>&site=<?php echo urlencode($ong['site']); ?>&descricao=<?php echo urlencode($ong['descricao']); ?>&missao=<?php echo urlencode($ong['missao']); ?>&area=<?php echo urlencode($ong['area']); ?>&caminhos_galeria=<?php echo urlencode($ong['galeria']); ?>">Saiba
+            Mais</a>
         </div>
       </div>
     <?php endforeach; ?>

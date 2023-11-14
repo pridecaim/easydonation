@@ -15,7 +15,7 @@ $ongs = $ong->buscarTodasOngs();
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR">  
 
 <head>
   <meta charset="UTF-8">
@@ -30,9 +30,6 @@ $ongs = $ong->buscarTodasOngs();
   <a href="javascript:history.back()">
     <img src="../public/img/back.png" alt="Imagem do voltar" style="width: 20px; height:30;">
   </a>
-
-
-
   <p style="margin-left:102px;">Finalizar Doação</p>
   <div class="listra">
   </div>
@@ -72,12 +69,51 @@ $ongs = $ong->buscarTodasOngs();
     echo "<p>$ongNome</p>";
     ?>
     <div class="listra1">
+        <input type="radio" name="valor" id="R$10">
+        <label for="R$10">R$10</label>
+
+        <input type="radio" name="valor" id="R$20">
+        <label for="R$20">R$20</label>
+
+        <input type="radio" name="valor" id="R$50">
+        <label for="R$50">R$50</label>
+
+        <input type="radio" name="valor" id="R$100">
+        <label for="R$100">R$100</label>
     </div>
+
     <div class="listra2">
+    </div>
       <p>Ao clicar em “DOAR” abaixo, declaro que<br>tenho mais de 18 anos e que sou um usuário<br>autorizado desse
         método de pagamento, e que<br>concordo com os <a href="">termos e condições</a></p> <br>
-    </div>
+      <button name="doar">Doar</button>  
+      
+  
+
   </div>
+ 
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="../public/img/logonobg.png" alt="Logo da Sua Empresa">
+        </div>
+        <div class="footer-info">
+          <h2>Contato</h2>
+          <p>Endereço: Rua da Empresa, 123</p>
+          <p>Telefone: (123) 456-7890</p>
+          <p>Email: contato@suaempresa.com</p>
+        </div>
+        <div class="footer-social">
+          <h2>Redes Sociais</h2>
+          <a href="#" target="_blank">Facebook</a>
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script>
     var credito = document.getElementById('credito');
     var pix = document.getElementById('PIX');
@@ -104,5 +140,30 @@ $ongs = $ong->buscarTodasOngs();
       }
     });
 
+    const radios = document.querySelectorAll('input[type="radio"]');
+
+    radios.forEach(radio => {
+      radio.addEventListener('click', () => {
+        radios.forEach(otherRadio => {
+          if (otherRadio !== radio) {
+            otherRadio.checked = false;
+          }
+        });
+      });
+    });
+
+
+    var doarButton = document.querySelector('button[name="doar"]');
+  doarButton.addEventListener('click', function() {
+    var isPixSelected = document.getElementById('PIX').checked;
+    var selectedRadio = document.querySelector('input[type="radio"]:checked');
+
+    if (isPixSelected && selectedRadio) {
+      // Redireciona para a página "pix.php" com os parâmetros necessários, se houver
+      window.location.href = 'pix.php?valor=' + selectedRadio.id;
+    } else {
+      alert('Por favor, selecione PIX e um valor antes de doar.');
+    }
+  });
   </script>
 </body>
