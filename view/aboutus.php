@@ -98,7 +98,12 @@ $email = $_SESSION['email'];
           disposição para ajudar. </p>
         </p>
       </div>
-      
+
+    </div>
+  </div>
+  <div class="term">
+  <p class="title">Termos e Condições</p>
+  </div>
 
 </body>
 

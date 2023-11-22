@@ -21,13 +21,31 @@ if (isset($_GET['valor'])) {
     <img src="../public/img/back.png" alt="Imagem do voltar" style="width: 20px; height:30;">
   </a>
 
-  <img src="../public/img/logonobg.png" alt="Imagem de fundo"
-            style="width: 45px; height: auto; margin-right: 90px;">
+  <img src="../public/img/logonobg.png" alt="Imagem de fundo" class="imglogo">
+
 <div class= "listrapix">
-<p style="margin-left:600px; font-size: 25px; ">PIX</p>
+<img src="../public/img/pixlogobw.png" alt="pix" style="position: absolute; left: 38%; top: 10px; width: 40px; height: 40px;">
+<p style="top: 100px; margin-left:600px; font-size: 25px; left: 50%;">PIX</p>
 </div>
 
+<p style="position: absolute; left: 85px; top: 150px; font-size: 25px; ">Pix</p>
+<img src="../public/img/pixlogo.png" alt="pix" style="position: absolute; left: 35px; top: 170px; width: 40px; height: 40px;">
 
+<p style="position: absolute; top: 195px; font-size: 25px; left: 35px;">Dados pessoais</p>
+
+<p style= "position: absolute; left: 35px; top: 250px; font-size: 15px;">Nome completo</p>
+
+
+
+<label for="nome completo">Nome completo</label>
+<input type="text">
+
+<label for="cpf">CPF</label>
+<input type="number">
+
+
+
+<div class= "retangulo">
 <h1>Valor Selecionado:</h1>
   <p><?php echo $valorSelecionado; ?></p>
 

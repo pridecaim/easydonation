@@ -249,13 +249,56 @@ box-sizing: border-box;
 
 position: absolute;
 width: 1450px;
-height: 70px;
+height: 60px;
 left: -5px;
-top: 70px;
+top: 60px;
 background: #E8E8E8;
 border: 1px solid #979797;
 
 }
 
-/* Rectangle 53 */
+.imglogo{
+  width: 45px;
+  height: auto;
+  position: absolute;
+  top: 0; /* Posicione a imagem no topo da página */
+  left: 50%; /* Centralize horizontalmente em relação à largura da página */
+  transform: translateX(-50%);
+}
 
+.retangulo{
+
+box-sizing: border-box;
+position: absolute;
+width: 859px;
+height: 113px;
+left: 47px;
+top: 440px;
+background: #FFFFFF;
+border: 1px solid #545454;
+}
+
+.bodynome{
+box-sizing: border-box;
+position: absolute;
+width: 380px;
+height: 40px;
+left: 35px;
+top: 290px;
+background: rgba(255, 255, 255, 0.8);
+border: 1px solid #545454;
+
+}
+
+.bodycpf{
+  box-sizing: border-box;
+  position: fixed;
+  width: 300px;
+  height: 40px;
+  right: 40%;
+  top: 290px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #545454;
+  
+  }
+  

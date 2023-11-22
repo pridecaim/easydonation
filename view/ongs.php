@@ -4,21 +4,36 @@ require_once("../action/Ong.php");
 require_once("../database/conexao.php");
 include("components/navbar.php");
 
-$img = $_GET['img'];
-$nome = $_GET['nome'];
-$telefone = $_GET['telefone'];
-$endereco = $_GET['endereco'];
-$site = $_GET['site'];
-$descricao = $_GET['descricao'];
-$missao = $_GET['missao'];
-$area = $_GET['area'];
-$caminhos_galeria = array(); // Inicialize a variável para a galeria de imagens
+$id = $_GET['id'];
+$db = new Conexao();
+$conn = $db->getConnection();
+$ong = new Ong($conn);
 
-if (isset($_GET['galeria'])) {
-    $galeria_decodificada = urldecode($_GET['galeria']);
-    $caminhos_galeria = explode(';', $galeria_decodificada);
+// Supondo que a classe Ong tenha um método getOngById
+$ongData = $ong->getOngId($id);
+
+// Verifique se a ONG foi encontrada antes de prosseguir
+if ($ongData) {
+    $img = $ongData['img'];
+    $nome = $ongData['nome'];
+    $telefone = $ongData['telefone'];
+    $endereco = $ongData['endereco'];
+    $site = $ongData['site'];
+    $descricao = $ongData['descricao'];
+    $missao = $ongData['missao'];
+    $area = $ongData['area'];
+    $caminhos_galeria = explode(';', $ongData['galeria']);
+
+    // Se 'galeria' estiver definido na URL, decodifique e substitua $caminhos_galeria
+    if (isset($_GET['galeria'])) {
+        $galeria_decodificada = urldecode($_GET['galeria']);
+        $caminhos_galeria = explode(';', $galeria_decodificada);
+    }
+} else {
+    // Lide com o caso em que a ONG não foi encontrada, por exemplo, redirecione para uma página de erro
+    header("Location: erro.php");
+    exit();
 }
-
 
 
 $db = new Conexao();
@@ -45,7 +60,6 @@ if (isset($_POST['doar'])) {
         <?php echo ($nome) ?>
     </title>
     <link rel="stylesheet" href="../public/css/stylesin.css">
-    <link rel="stylesheet" href="../public/scss/pictures.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -55,20 +69,28 @@ if (isset($_POST['doar'])) {
 
 <body class="bg-custom">
 
+    <form method="POST">
+        <div class="background-square-gradient-right">
+            <h3>Você pode fazer a diferença!</h3><br>
+            <p>
+                <?php echo ($missao); ?>
+            </p>
+            <p>
+                <?php echo ($area); ?>
+            </p>
+            <button name="doar">Doar</button>
+        </div>
+    </form>
     <div class="image-gallery">
-        <h3>Galeria de Imagens</h3>
         <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <?php
-                if (isset($caminhos_galeria) && !empty($caminhos_galeria)) {
-                    foreach ($caminhos_galeria as $index => $imagem) {
-                        $activeClass = ($index === 0) ? 'active' : '';
-                        echo '<div class="carousel-item ' . $activeClass . '">';
-                        echo '<img src="' . $imagem . '" class="d-block w-100" alt="Imagem da galeria ' . ($index + 1) . '">';
-                        echo '</div>';
-                    }
-                }
-                ?>
+                <?php foreach ($caminhos_galeria as $index => $imagem): ?>
+                    <?php $activeClass = ($index === 0) ? 'active' : ''; ?>
+                    <div class="carousel-item <?php echo $activeClass; ?>">
+                        <img src="<?php echo $imagem; ?>" class="d-block w-100"
+                            alt="Imagem da galeria <?php echo ($index + 1); ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -80,36 +102,28 @@ if (isset($_POST['doar'])) {
             </button>
         </div>
     </div>
+
     <div class="background-square-gradient">
         <h3>
             <?php echo ($nome); ?>
         </h3>
-        <p>Descrição:
+        <p>
             <?php echo ($descricao); ?>
-        </p>
-        <p>Telefone:
+        </p><br>
+        <p>Entre em contato!</p>
+        <p>
             <?php echo ($telefone); ?>
         </p>
-        <p>Site: <a href="<?php echo $site; ?>" target="_blank">
+        <p><a href="<?php echo $site; ?>" target="_blank">
                 <?php echo $site; ?>
-            </a></p>
-        <p>Endereço:
+            </a>
+        <p>
+        <p>
             <?php echo ($endereco); ?>
         </p>
     </div>
 
-    <form method="POST">
-        <div class="background-square-gradient-right">
-            <h3>Você pode fazer a diferença!</h3>
-            <p>
-                <?php echo ($missao); ?>
-            </p>
-            <p>Área de Atuação:
-                <?php echo ($area); ?>
-            </p>
-            <button name="doar">Doar</button>
-        </div>
-    </form>
+
 </body>
 
 </html>

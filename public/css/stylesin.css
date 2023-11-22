@@ -1,4 +1,4 @@
-/*Style do index, perfil, sobre nós e ongs*/
+@import url('https://fonts.googleapis.com/css2?family=Gafata&display=swap');
 
 .bg-custom {
     background-color: #FFF7ED;
@@ -54,44 +54,6 @@
     color: #fff;
 }
 
-
-/* Estilo para o fundo quadrado com gradiente de cores */
-.background-square-gradient {
-    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
-    /* Gradiente de cores */
-    border-radius: 20px;
-    /* Arredondamento das bordas */
-    padding: 40px;
-    /* Espaçamento interno */
-    margin: 40px auto;
-    /* Margem externa para centralizar */
-    max-width: 580px;
-    /* Largura máxima do quadrado */
-    float: left;
-    /* Alinha à esquerda */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Estilo para o segundo fundo quadrado à direita */
-.background-square-gradient-right {
-    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
-    /* Gradiente de cores de cima para baixo */
-    border-radius: 20px;
-    /* Arredondamento das bordas */
-    padding: 40px;
-    /* Espaçamento interno */
-    margin: 40px 0 40px 20px;
-    /* Margem externa para centralizar verticalmente e alinhar à direita */
-    max-width: 600px;
-    /* Largura máxima do quadrado */
-    float: right;
-    /* Alinha à direita */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-}
 
 
 .navbar-brand img {
@@ -353,6 +315,7 @@ button.ghost {
     margin-left: 55px;
 
 }
+
 .ong-catalog a {
     width: 100px;
     height: 40px;
@@ -371,4 +334,83 @@ button.ghost {
     transform: scale(1.08);
     color: rgba(245, 245, 245, 0.8);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#galleryCarousel {
+    margin: 10px;
+    max-width: 720px; /* Ajuste o valor conforme necessário */
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Ajusta a altura da galeria se as imagens tiverem proporções diferentes */
+#galleryCarousel .carousel-inner {
+    max-height: 500px; /* Ajuste o valor conforme necessário */
+}
+
+
+.background-square-gradient {
+    margin: 10px;
+    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
+    border-radius: 10px;
+    padding: 40px;
+    /* Espaçamento interno */
+    /* Margem externa para centralizar */
+    max-width: 720px;
+    /* Largura máxima do quadrado */
+    float: left;
+    /* Alinha à esquerda */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para o segundo fundo quadrado à direita */
+.background-square-gradient-right {
+    background: linear-gradient(to bottom, #8918BE, #D83396, #FF774B);
+    border-radius: 10px;
+    padding: 40px;
+    margin: 10px;
+    max-width: 550px;
+    float: right;
+    /* Alinha à direita */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.background-square-gradient h3,
+.background-square-gradient-right h3{
+    font-size: 30px;
+    font-family: 'Gafata', sans-serif;
+    font-weight: bold;
+}
+
+.background-square-gradient p,
+.background-square-gradient-right p{
+    font-size: 20px;
+    font-family: 'Gafata', sans-serif;
+}
+
+.term{
+    margin: 10px;
+    background: linear-gradient(333333.98deg, #8918BE, #D83396, #FF774B);
+    border-radius: 10px;
+    padding: 40px;
+    /* Espaçamento interno */
+    /* Margem externa para centralizar */
+    max-width: 720px;
+    /* Largura máxima do quadrado */
+    float: left;
+    /* Alinha à esquerda */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.term .title{
+    font-size: 20px;
 }

@@ -86,7 +86,6 @@ class Ong
         $result = $stmt->execute();
 
         return array('result' => $result, 'caminhos_imagens' => $caminhos_imagens);
-
     }
 
     private function verificarEmailExistente($email)
@@ -148,6 +147,15 @@ class Ong
         }
     }
 
+    public function getOngId($id) {
+        $query = "SELECT * FROM ". $this->table_name." WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute([$id]);
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+    }
 }
 
 ?>
