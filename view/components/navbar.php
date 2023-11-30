@@ -19,25 +19,24 @@
           </a>
         </li>
         <li class="nav-item">
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+          <form class="form-inline ml-auto" action="../view/search.php" method="get">
+            <input class="form-control" type="search" name="q" placeholder="Pesquisa" aria-label="Search">
           </form>
         </li>
         <?php if (isset($_SESSION['email'])): ?>
           <input type="checkbox" role="button" ar ia-label="Display the menu" class="menu" id="menuToggle">
           <div class="opcs">
-            <button id="opc1" class="opc" style="font-size: 18px;">Perfil<br><small style="font-size: 0.6em;"><?php echo $_SESSION['nome']; ?></small></button>
-            <button id="opc2" class="opc">Configurações</button>
-            <button id="opc3" class="opc">Contato</button>
-            <button id="opc4" class="opc">Sair</button>
+            <button id="opc1" class="opc" style="font-size: 18px;">Perfil<br><small style="font-size: 0.6em;">
+                <?php echo $_SESSION['nome']; ?>
+              </small></button>
+            <button id="opc2" class="opc">Contato</button>
+            <button id="opc3" class="opc">Sair</button>
           </div>
         <?php else: ?>
           <input type="checkbox" role="button" aria-label="Display the menu" class="menu" id="menuToggle">
           <div class="opcs">
-            <button id="opc1" class="opc">Perfil</button>
-            <button id="opc2" class="opc">Configurações</button>
-            <button id="opc3" class="opc">Contato</button>
-            <button id="opc4" class="opc">Entrar</button>
+            <button id="opc2" class="opc">Contato</button>
+            <button id="opc3" class="opc">Entrar</button>
           </div>
         <?php endif; ?>
 
@@ -57,26 +56,27 @@
     opc.style.display = menuToggle.checked ? "block" : "none";
   }
 
-  // Função para lidar com os redirecionamentos
   function redirectToPage(page) {
-    // Redirecionar o usuário para a página desejada
+    console.log("Redirecting to page:", page);
+
     switch (page) {
       case "opc1":
-        window.location.href = "../view/perfil.php";
+        url = "../view/perfil.php";
         break;
       case "opc2":
-        window.location.href = "pagina2.html";
+        window.location.href = "../view/ajuda.php";
         break;
       case "opc3":
-        window.location.href = "pagina3.html";
-        break;
-      case "opc4":
-        window.location.href = "../view/cduser.php";
+        window.location.href = "../view/logout.php";
         break;
       default:
         break;
     }
+
+    console.log("Redirecting to URL:", url);
+    window.location.href = url;
   }
+
 
   // Adicionar eventos aos botões de opção
   optionButtons.forEach(button => {

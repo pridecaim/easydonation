@@ -2,10 +2,7 @@
 require_once("../action/Ong.php");
 require_once("../database/conexao.php");
 include("components/navbar.php");
-if (!isset($_SESSION['email'])) {
-  header("Location: index.php");
-  exit();
-}
+
 $email = $_SESSION['email'];
 $db = new Conexao();
 $conn = $db->getConnection();
@@ -44,8 +41,5 @@ $ongs = $ong->buscarTodasOngs();
     </div>
   <?php endforeach; ?>
 </div>
-
-
-
 </body>
 </html>

@@ -19,7 +19,7 @@
 }
 
 
-.container-atualizar input:focus{
+.container-atualizar input:focus {
     transform: scale(1.05);
     color: rgba(85, 85, 85, 0.8);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -36,7 +36,7 @@
 
 /* Estilo para o fundo quadrado à direita */
 .background-square-gradient-right-tall {
-    background: linear-gradient(333.98deg, #FF774B -2.35%, #EC5571 43.77%, #D83396 75.18%, #8918BE 94.95%);
+    background: linear-gradient(333.98deg, #D83396 75.18%, #8918BE 94.95%);
     /* Gradiente de cores de cima para baixo */
     border-radius: 20px;
     /* Arredondamento das bordas */
@@ -52,9 +52,94 @@
     height: 500px;
     margin-top: 12px;
     color: #fff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
+        0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.background-help {
+    border-radius: 20px;
+    /* Arredondamento das bordas */
+    padding: 40px;
+    /* Espaçamento interno */
+    margin: 190px;
+    /* Margem externa para centralizar verticalmente e alinhar à direita */
+    width: 430px;
+    /* Largura máxima do quadrado */
+
+    float: right;
+    /* Alinha à direita */
+    height: 500px;
+    margin-top: 12px;
+    color: #fff;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
+        0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-help {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
+
+.container-help h3 {
+    margin-bottom: 20px;
+    color: #8918BE;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-info div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info h4 {
+    margin-top: 20px;
+    color: #D83396;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    color: #424242;
+}
+
+.contact-info a {
+    color: #D83396;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    transform: scale(1.06);
+}
+
+
+.contact-info small {
+    color: #5f5f5f;
+}
+
+.termos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.termos a{
+    margin-top: 20px;
+    color: #be2e85;
+    text-decoration: none;
+}
+
+.termos a:hover {
+    transform: scale(1.06);
+}
 
 .navbar-brand img {
     width: 50px;
@@ -247,7 +332,7 @@
     position: relative;
     width: 170px;
     height: 240px;
-    margin: 30px ;
+    margin: 30px;
     /* Espaço entre as ONGs - você pode ajustar este valor */
     background: linear-gradient(360deg, #D83396 5.3%, #FF774B 104.02%);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -283,7 +368,7 @@
 button {
     border-radius: 9px;
     border: none;
-    background-color:#d833968a;
+    background-color: #d833968a;
     color: #FFFFFF;
     font-size: 12px;
     padding: 18px 55px;
@@ -320,14 +405,17 @@ button.ghost {
     width: 100px;
     height: 40px;
     display: flex;
-    justify-content: center; /* Adicionado para centralizar o texto */
-    align-items: center; /* Adicionado para alinhar verticalmente o texto */
+    justify-content: center;
+    /* Adicionado para centralizar o texto */
+    align-items: center;
+    /* Adicionado para alinhar verticalmente o texto */
     color: #fff;
-    background-color:#FF774B;
+    background-color: #FF774B;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     text-decoration: none;
-    margin-top: -15px; /* Adicionado para mover o botão para cima */
+    margin-top: -15px;
+    /* Adicionado para mover o botão para cima */
 }
 
 .ong-catalog a:hover {
@@ -338,7 +426,8 @@ button.ghost {
 
 #galleryCarousel {
     margin: 10px;
-    max-width: 720px; /* Ajuste o valor conforme necessário */
+    max-width: 720px;
+    /* Ajuste o valor conforme necessário */
 }
 
 .carousel-inner img {
@@ -348,7 +437,8 @@ button.ghost {
 
 /* Ajusta a altura da galeria se as imagens tiverem proporções diferentes */
 #galleryCarousel .carousel-inner {
-    max-height: 500px; /* Ajuste o valor conforme necessário */
+    max-height: 500px;
+    /* Ajuste o valor conforme necessário */
 }
 
 
@@ -383,34 +473,14 @@ button.ghost {
 }
 
 .background-square-gradient h3,
-.background-square-gradient-right h3{
+.background-square-gradient-right h3 {
     font-size: 30px;
     font-family: 'Gafata', sans-serif;
     font-weight: bold;
 }
 
 .background-square-gradient p,
-.background-square-gradient-right p{
+.background-square-gradient-right p {
     font-size: 20px;
     font-family: 'Gafata', sans-serif;
-}
-
-.term{
-    margin: 10px;
-    background: linear-gradient(333333.98deg, #8918BE, #D83396, #FF774B);
-    border-radius: 10px;
-    padding: 40px;
-    /* Espaçamento interno */
-    /* Margem externa para centralizar */
-    max-width: 720px;
-    /* Largura máxima do quadrado */
-    float: left;
-    /* Alinha à esquerda */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-}
-
-.term .title{
-    font-size: 20px;
 }

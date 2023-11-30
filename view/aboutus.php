@@ -2,12 +2,6 @@
 session_start();
 include("components/navbar.php");
 
-if (!isset($_SESSION['email'])) {
-  header("Location: ../public/index.php");
-  exit();
-}
-$email = $_SESSION['email'];
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,7 +19,7 @@ $email = $_SESSION['email'];
 </head>
 
 <body class="bg-custom">
-  <!-- Dentro do corpo do seu arquivo HTML -->
+
   <div class="background-square-gradient">
     <p>Sobre a Easy Donation</p>
     <p>
@@ -56,10 +50,63 @@ $email = $_SESSION['email'];
       Se você tiver alguma dúvida, sugestão ou desejar saber mais sobre como você pode se envolver, não hesite em entrar
       em contato conosco. Estamos aqui para ajudar e inspirar.
       Juntos, podemos construir um futuro mais brilhante e compassivo para todos.
-    </p>
+    </p><br><br>
+    <div class="term" id="term">
+      <h1>Termos e Condições</h1>
+
+      <p>Bem-vindo ao EasyDonation, um espaço dedicado à facilitação de doações para diversas Organizações Não
+        Governamentais (ONGs). Antes de utilizar nossos serviços, leia atentamente os termos e condições a seguir.</p>
+
+      <h4>1. Aceitação dos Termos e Condições</h4>
+
+      <p>Ao acessar e utilizar os serviços de doação oferecidos pelo EasyDonation, você concorda em cumprir e estar
+        vinculado a estes Termos e Condições.</p>
+
+      <h4>2. Cadastro e Login</h4>
+
+      <p>a. Para efetuar doações, é necessário realizar o cadastro no site, fornecendo informações precisas e
+        atualizadas.</p>
+      <p>b. O usuário compromete-se a manter a confidencialidade de suas credenciais de login e é responsável por todas
+        as atividades vinculadas à sua conta.</p>
+
+      <h4>3. Informações Pessoais</h4>
+
+      <p>a. Para efetuar doações, o doador deve fornecer informações pessoais, incluindo nome completo e CPF.</p>
+      <p>b. Todas as informações fornecidas serão tratadas de acordo com nossa Política de Privacidade.</p>
+
+      <h4>4. Doações</h4>
+
+      <p>a. O EasyDonation oferece a possibilidade de doar diversos valores através do sistema Pix.</p>
+      <p>b. O doador é responsável por garantir que as informações fornecidas para a doação estejam corretas.</p>
+      <p>c. As doações são destinadas às ONGs cadastradas no EasyDonation, e o doador pode escolher a organização
+        específica para receber sua contribuição.</p>
+
+      <h4>5. Compromisso de Privacidade</h4>
+
+      <p>a. Todas as informações pessoais fornecidas serão tratadas com a máxima confidencialidade.</p>
+      <p>b. O EasyDonation compromete-se a adotar medidas de segurança para proteger as informações dos doadores.</p>
+
+      <h4>6. Responsabilidade</h4>
+
+      <p>a. O EasyDonation não se responsabiliza por quaisquer perdas ou danos decorrentes do uso indevido das
+        informações fornecidas pelos doadores.</p>
+      <p>b. A responsabilidade pelo uso adequado das doações recebidas é exclusiva das ONGs cadastradas.</p>
+
+      <h4>7. Alterações nos Termos e Condições</h4>
+
+      <p>Reservamo-nos o direito de modificar estes Termos e Condições a qualquer momento. As alterações entrarão em
+        vigor imediatamente após a publicação no site.</p>
+
+      <p>Data de vigência: [Inserir data de atualização]</p>
+
+      <p>Ao continuar a utilizar os serviços do EasyDonation, você aceita e concorda com os Termos e Condições descritos
+        acima. Em caso de dúvidas, entre em contato conosco através dos canais disponíveis no site.</p>
+
+      <p>Agradecemos por seu apoio às organizações não governamentais!</p>
+    </div>
   </div>
 
-  <!-- Segundo quadrado à direita -->
+
   <div class="background-square-gradient-right">
     <div class="background-image-container">
       <div class="content-container">
@@ -101,9 +148,7 @@ $email = $_SESSION['email'];
 
     </div>
   </div>
-  <div class="term">
-  <p class="title">Termos e Condições</p>
-  </div>
+
 
 </body>
 

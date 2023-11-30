@@ -60,7 +60,7 @@ class Usuario
 
     public function getNome($email)
     {
-        $query = "SELECT nome FROM ". $this->table_name ." WHERE email = ?";
+        $query = "SELECT nome FROM " . $this->table_name . " WHERE email = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $email);
         $stmt->execute();
@@ -70,6 +70,29 @@ class Usuario
         } else {
             return false;
         }
+    }
+
+    public function atualizar($id, $nome, $email, $img)
+    {
+
+        $query = "UPDATE " . $this->table_name . " SET nome=?, email=?, img=? WHERE id=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$nome, $email, $img, $id]);
+
+        return true;
+    }
+
+    public function getUserInfo($id)
+    {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$id]);
+
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        return null;
     }
 
 }

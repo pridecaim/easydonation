@@ -9,10 +9,9 @@ $db = new Conexao();
 $conn = $db->getConnection();
 $ong = new Ong($conn);
 
-// Supondo que a classe Ong tenha um método getOngById
+
 $ongData = $ong->getOngId($id);
 
-// Verifique se a ONG foi encontrada antes de prosseguir
 if ($ongData) {
     $img = $ongData['img'];
     $nome = $ongData['nome'];
@@ -24,15 +23,11 @@ if ($ongData) {
     $area = $ongData['area'];
     $caminhos_galeria = explode(';', $ongData['galeria']);
 
-    // Se 'galeria' estiver definido na URL, decodifique e substitua $caminhos_galeria
+    
     if (isset($_GET['galeria'])) {
         $galeria_decodificada = urldecode($_GET['galeria']);
         $caminhos_galeria = explode(';', $galeria_decodificada);
     }
-} else {
-    // Lide com o caso em que a ONG não foi encontrada, por exemplo, redirecione para uma página de erro
-    header("Location: erro.php");
-    exit();
 }
 
 
@@ -43,7 +38,7 @@ $ong = new Ong($conn);
 $ongs = $ong->buscarTodasOngs();
 
 if (isset($_POST['doar'])) {
-    // Armazene os dados da ONG na sessão
+    
     $_SESSION['ong_nome'] = $nome;
     $_SESSION['ong_img'] = $img;
     header("Location: pagamento.php");

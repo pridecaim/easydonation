@@ -1,18 +1,12 @@
 <?php
-// Inclua os arquivos necessários
 require_once("../action/Ong.php");
 require_once("../database/conexao.php");
-
-// Crie uma instância da classe de conexão com o banco de dados
 $database = new Conexao();
 $db = $database->getConnection();
-
-// Crie uma instância da classe Ong passando a conexão como argumento
 $ong = new Ong($db);
 
 if (isset($_POST['cadastrar'])) {
     $caminhos_imagens = $ong->cadastrarong($_POST, $_FILES);
-
     if ($caminhos_imagens['result'] !== false) {
     }
 }
@@ -98,7 +92,7 @@ if (isset($_POST['cadastrar'])) {
         <?php
         if (isset($caminhos_imagens) && $caminhos_imagens['result']) {
             echo "alert('Ong cadastrada com sucesso!');";
-            echo "window.location.href = 'cduser.php';"; // Redirecionar após o cadastro bem-sucedido
+            echo "window.location.href = 'cduser.php';"; 
         }
         ?>
     </script>

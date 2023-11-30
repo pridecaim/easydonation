@@ -156,6 +156,28 @@ class Ong
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
     }
+
+    public function searchOngs($searchTerm) {
+        $searchTerm = "%" . $searchTerm . "%"; // Adiciona '%' para corresponder a qualquer parte do termo
+
+        // Consulta SQL para pesquisa
+        $query = "SELECT * FROM ongs WHERE nome LIKE :searchTerm";
+
+        // Preparar a declaração
+        $stmt = $this->conn->prepare($query);
+
+        // Bind o parâmetro
+        $stmt->bindParam(':searchTerm', $searchTerm);
+
+        // Executar a consulta
+        $stmt->execute();
+
+        // Obter os resultados
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $results;
+    }
 }
+
 
 ?>

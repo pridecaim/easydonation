@@ -1,37 +1,10 @@
-<?php
-session_start();
-if (!isset($_SESSION['email'])) {
-  header("Location: ../public/index.php");
-  exit();
-}
-$email = $_SESSION['email'];
-require_once("../action/Usuario.php");
-require_once("../database/conexao.php");
-
-$database = new Conexao();
-$db = $database->getConnection();
-$usuario = new Usuario($db);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id = $_POST['id'];
-  $nome = $_POST['nome'];
-  $email = $_POST['email'];
-  $img = $_POST['img'];
-  if ($usuario->atualizar($id, $nome, $email, $img)) {
-    echo "<script>alert('Perfil atualizado com sucesso');</script>";
-  } else {
-    echo "<script>alert('Falha ao atualizar o perfil');</script>";
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil</title>
+  <title>Ajuda</title>
   <link rel="stylesheet" href="../public/css/stylesin.css">
   <link rel="icon" href="../public/img/logonobg.png" type="image/x-icon">
   <style>
@@ -109,8 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   </style>
 </head>
 
-<body class="bg-custom">
-
+<body>
   <div class="background-square-gradient-left">
     <div id="menu">
       <a href="../public/index.php"> <img src="../public/img/logonobg.png" alt="Imagem de fundo">Início</a>
@@ -119,38 +91,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <a href="ajuda.php"> <img src="../public/img/help.png" alt="Imagem de fundo">Ajuda</a>
 
-
-      <a href="logout.php"><img src="../public/img/logout.png" alt="Imagem de fundo">Sair</a>
+      <?php if (isset($_SESSION['email'])): ?>
+        <a href="logout.php"><img src="../public/img/logout.png" alt="Imagem de fundo">Sair</a>
+      <?php else: ?>
+        <a href="logout.php"><img src="../public/img/login.png">Entrar</a>
+      <?php endif; ?>
     </div>
   </div>
 
-  <div class="background-square-gradient-right-tall">
-    <div class="container-atualizar">
-      <form method="POST">
-        <div class="circle" id="imageContainer">
-          <img id="userImage" src="../public/img/whiteuser.png" alt="Imagem do Usuário">
-          <input type="file" name="img" id="imageInput" style="display: none;">
-          <label for="imageInput"
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;"></label>
+
+  <div class="background-help">
+    <div class="container-help">
+      <h3>Como você prefere falar com a gente?</h3>
+      <div class="contact-info">
+        <div>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/phone--v1.png" alt="phone--v1" />
+          <h4>Telefone</h4>
+          <small>Você pode ligar a qualquer hora!</small><br>
+          <a href="tel:41997766653">(41)997766653</a>
+          <a href="tel:41996984247">(41)996984247</a>
         </div>
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" placeholder="<?php echo $_SESSION['nome']; ?>" readonly>
-        <label for="email">E-mail</label>
-        <input type="email" name="email" placeholder="<?php echo $_SESSION['email']; ?>" readonly>
-
-        <button type="submit" name="atualizar">ATUALIZAR</button>
-      </form>
+        <div>
+          <img width="30" height="30" src="https://img.icons8.com/ios/50/new-post--v1.png" alt="new-post--v1" />
+          <h4>E-mail</h4>
+          <small>Tem alguma dúvida?</small><br>
+          <a href="mailto:contatoeasydonation@gmail.com">contatoeasydonation@gmail.com</a>
+        </div>
+      </div>
+      <div class="termos">
+        <a href="aboutus.php#term">Termos e condições</a>
+      </div>
     </div>
   </div>
-  <script>
-    document.getElementById('imageInput').onchange = function (e) {
-      var reader = new FileReader();
-      reader.onload = function (event) {
-        document.getElementById('userImage').src = event.target.result; // Atualiza a imagem
-      };
-      reader.readAsDataURL(e.target.files[0]);
-    };
-  </script>
 </body>
 
 </html>

@@ -24,21 +24,20 @@ if (isset($_POST['logar'])) {
   $email = $_POST['email'];
   $senha = $_POST['senha'];
 
-  // Tente fazer login como usuário
   if ($usuario->logar($email, $senha)) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $usuario->getNome($email);
     header("Location: ../public/index.php");
     exit();
   }
-  // Se o login do usuário falhar, tente fazer login como ONG
+
   else if ($ong->logar($email, $senha)) {
     $_SESSION['email'] = $email;
     $_SESSION['nome'] = $ong->getNome($email);
     header("Location: ../public/index.php");
     exit();
   }
-  // Se ambos falharem, exiba uma mensagem de erro
+  
   else {
     echo "<script>alert('Login inválido')</script>";
   }

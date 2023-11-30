@@ -41,8 +41,6 @@ $ongs = $ong->buscarTodasOngs();
     <?php endforeach; ?>
   </div>
 
-
-
 </body>
 
 </html>

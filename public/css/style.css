@@ -1,4 +1,4 @@
-/*css das telas de pagamento*/
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
@@ -9,11 +9,8 @@
 body {
   background-color: #fcfcfc;
   overflow-y: scroll;
-  /* Define a cor de fundo personalizada */
+ 
 }
-
-
-/* Rectangle credito */
 
 input[type="checkbox"] {
   -webkit-appearance: none;
@@ -38,19 +35,6 @@ input[type="checkbox"]:checked {
   margin-top: 80px;
 }
 
-.credit-box {
-  box-sizing: border-box;
-  padding: 10px;
-  position: absolute;
-  width: 450px;
-  height: 150px;
-  background: #F5F5F5;
-  border: 1px solid #000000;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
-    0 10px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Rectangle pix */
 .pix-box {
   box-sizing: border-box;
   position: absolute;
@@ -58,28 +42,15 @@ input[type="checkbox"]:checked {
   height: 100px;
   background: #F5F5F5;
   border: 1px solid #000000;
-  top: 350px;
   margin-top: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
     0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Rectangle boleto */
-.boleto-box {
-  box-sizing: border-box;
-  position: absolute;
-  width: 450px;
-  height: 100px;
-  background: #F5F5F5;
-  border: 1px solid #000000;
-  top: 470px;
-  margin-top: 20px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
-    0 10px 10px rgba(0, 0, 0, 0.1);
-}
+
 
 .background-square-right {
-  /* Rectangle 2 */
+
   color: #F5F5F5;
   text-align: center;
   box-sizing: border-box;
@@ -95,8 +66,6 @@ input[type="checkbox"]:checked {
     0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-
-
 .background-square-right img {
   border-radius: 15px;
   margin-top: 10px;
@@ -105,19 +74,16 @@ input[type="checkbox"]:checked {
 }
 
 .listra {
-  /* Rectangle 36 */
   border-radius: 10px;
   width: 245px;
   height: 4px;
   left: 55px;
-  top: 70px;
   background: linear-gradient(90deg, #FF774B 10.52%, #D83396 77.99%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 }
 
 .listra1 {
-  /* Rectangle 36 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,14 +91,14 @@ input[type="checkbox"]:checked {
   height: 6px;
   background: linear-gradient(90deg, #FF774B 10.52%, #D83396 77.99%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
- /* Ajuste este valor para mover os elementos para baixo */
+
 }
 
 input[type="radio"] {
   margin-top: 20px;
   appearance: none;
-  width: 0;
-  height: 0;
+  width: 200px;
+  height: 200px;
 }
 
 .listra1 label {
@@ -145,7 +111,7 @@ input[type="radio"] {
   margin-right: 10px;
   border: none;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
- /* Ajuste este valor para aumentar o espaçamento entre os elementos */
+
 }
 
 .listra1 input[type="radio"]:checked + label {
@@ -158,15 +124,13 @@ input[type="radio"] {
 }
 
 .listra2 {
-  /* Rectangle 36 */
+  
   width: 490px;
   height: 6px;
   background: linear-gradient(90deg, #D83396 10.52%, #FF774B 77.99%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-top: 280px; /* Ajuste este valor para mover os elementos para baixo */
+  margin-top: 280px; 
 }
-
-
 
 button {
   padding: 10px 20px;
@@ -177,19 +141,24 @@ button {
   cursor: pointer;
   font-size: 16px;
   margin-top: -190px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* Estilos do rodapé */
+button:hover{
+  transform: scale(1.09);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 .footer {
   margin-top: 570px;
-  background-color: #333; /* Cor de fundo do rodapé */
-  color: #fff; /* Cor do texto no rodapé */
-  padding: 40px 0; /* Espaçamento interno do rodapé */
+  background-color: #333; 
+  color: #fff; 
+  padding: 40px 0;
 }
 
 .container {
-  max-width: 1200px; /* Largura máxima do conteúdo do rodapé */
-  margin: 0 auto; /* Centralizar o conteúdo horizontalmente */
+  max-width: 1200px; 
+  margin: 0 auto; 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -235,25 +204,18 @@ button {
 }
 
 .footer-social a:hover {
-  color: #ff6600; /* Cor destacada ao passar o mouse */
+  color: #ff6600;
 }
-
-
-.bodypix{
-  overflow-x: hidden;
-}
-
 
 .listrapix{
-box-sizing: border-box;
-
-position: absolute;
-width: 1450px;
-height: 60px;
-left: -5px;
-top: 60px;
-background: #E8E8E8;
-border: 1px solid #979797;
+  box-sizing: border-box;
+  position: absolute;
+  width: 1450px;
+  height: 60px;
+  left: -5px;
+  top: 60px;
+  background: #E8E8E8;
+  border: 1px solid #979797;
 
 }
 
@@ -261,44 +223,77 @@ border: 1px solid #979797;
   width: 45px;
   height: auto;
   position: absolute;
-  top: 0; /* Posicione a imagem no topo da página */
-  left: 50%; /* Centralize horizontalmente em relação à largura da página */
+  left: 50%;
   transform: translateX(-50%);
 }
 
 .retangulo{
-
-box-sizing: border-box;
-position: absolute;
-width: 859px;
-height: 113px;
-left: 47px;
-top: 440px;
-background: #FFFFFF;
-border: 1px solid #545454;
-}
-
-.bodynome{
-box-sizing: border-box;
-position: absolute;
-width: 380px;
-height: 40px;
-left: 35px;
-top: 290px;
-background: rgba(255, 255, 255, 0.8);
-border: 1px solid #545454;
-
-}
-
-.bodycpf{
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
+  width: 630px;
+  height: 80px;
+  left: 35px;
+  top: 320px;
+  background: #FFFFFF;
+  border: 1px solid #545454;
+
+}
+
+.qrcode{
+  box-sizing: border-box;
+  position: absolute;
+  width: 630px;
+  height: 290px;
+  left: -1,1px;
+  top: 79px;
+  background: #FFFFFF;
+  border: 1px solid #545454;
+
+}
+
+.cod{
+    box-sizing: border-box;
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    left: 830px;
+    top: -135px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #545454;
+    
+}
+
+.info{
+  box-sizing: border-box;
+  position: absolute;
+  width: 300px;
+  height: 230px;
+  left: 810px;
+  top: -95px;
+  border: 1px solid #545454;
+
+}
+
+.ong-rectangle img{
+  width: 40px;
+  height: auto;
+  position: absolute;
+  top: 30px; 
+  left: 20px;
+
+}
+
+.total{
+  box-sizing: border-box;
+  position: absolute;
   width: 300px;
   height: 40px;
-  right: 40%;
-  top: 290px;
-  background: rgba(255, 255, 255, 0.8);
+  left: 830px;
+  top: 135px;
+  background:  rgb(202, 202, 202);
   border: 1px solid #545454;
   
-  }
-  
+ 
+}
+
+
