@@ -9,7 +9,7 @@
         <h2>Contato</h2>
         <p>Localização: Curitiba-PR</p>
         <p>Telefone: <a href="tel:41996984247">(41)99698-4247</a></p>
-        <p>Email: <a href="mailto:contatoeasydonation@gmail.com">contatoeasydonation@gmail.com</a></p>
+        <p>Email: <a href="mailto:easy.donation@outlook.com">easy.donation@outlook.com</a></p>
       </div>
     </div>
   </div>

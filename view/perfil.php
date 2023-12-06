@@ -137,8 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="text" name="nome" placeholder="<?php echo $_SESSION['nome']; ?>" readonly>
         <label for="email">E-mail</label>
         <input type="email" name="email" placeholder="<?php echo $_SESSION['email']; ?>" readonly>
-
-        <button type="submit" name="atualizar">ATUALIZAR</button>
+        
       </form>
     </div>
   </div>

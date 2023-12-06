@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -115,7 +118,7 @@
           <img width="30" height="30" src="https://img.icons8.com/ios/50/new-post--v1.png" alt="new-post--v1" />
           <h4>E-mail</h4>
           <small>Tem alguma dúvida?</small><br>
-          <a href="mailto:contatoeasydonation@gmail.com">contatoeasydonation@gmail.com</a>
+          <a href="mailto:easy.donation@outlook.com">easy.donation@outlook.com</a>
         </div>
       </div>
       <div class="termos">

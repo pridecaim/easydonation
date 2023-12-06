@@ -47,7 +47,7 @@ if (isset($_POST['cadastrar'])) {
             <input type="text" name="endereco" placeholder="Endereço" required>
             <input type="text" name="site" placeholder="Site Oficial">
             <input type="text" name="descricao" placeholder="Fale um pouco sobre sua Ong" required>
-            <input type="text" name="missao" placeholder="Fale sobre a missão da sua Ong" required>
+            <input type="text" name="missao" placeholder="Diga alguns motivos para doar para a sua Ong" required>
             <select name="area" id="area" required>
                 <option value="" disabled selected>Selecione a área de atuação</option>
                 <option value="Saúde">Saúde</option>

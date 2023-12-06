@@ -84,7 +84,7 @@ if (isset($_GET['valor'])) {
     </div>
     <p>Ao clicar em “DOAR” abaixo, declaro que<br>tenho mais de 18 anos e que sou um usuário<br>autorizado desse
       método de pagamento, e que<br>concordo com os <a href="aboutus.php#term">termos e condições</a></p> <br>
-      <a href="#" id="doarButton">
+    <a href="#" id="doarButton">
       <button name="doar">Doar</button>
     </a>
 
@@ -94,9 +94,9 @@ if (isset($_GET['valor'])) {
   <?php include("components/footer.php") ?>
 
   <script>
-    
+
     var pix = document.getElementById('PIX');
-    
+
 
     pix.addEventListener('change', function () {
       if (this.checked) {
@@ -116,19 +116,19 @@ if (isset($_GET['valor'])) {
         });
       });
     });
+    document.getElementById('doarButton').addEventListener('click', function () {
+      var selectedRadio = document.querySelector('input[type="radio"]:checked');
 
+      if (selectedRadio) {
+        var valorSelecionado = selectedRadio.id;
+        window.location.href = 'pix.php?valor=' + encodeURIComponent(valorSelecionado);
+      } else {
+        alert('Por favor, selecione um valor antes de doar.');
+      }
+    });
 
-  document.getElementById('doarButton').addEventListener('click', function () {
-    var selectedRadio = document.querySelector('input[type="radio"]:checked');
-    
-    if (selectedRadio) {
-      var valorSelecionado = selectedRadio.id;
-      window.location.href = 'pix.php?valor=' + encodeURIComponent(valorSelecionado);
-    } else {
-      alert('Por favor, selecione um valor antes de doar.');
-    }
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
